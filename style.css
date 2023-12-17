@@ -1,0 +1,436 @@
+:root{
+--red:#f9832f;
+--black:#000;
+--white:#fff;
+--green:#095735;
+}/*顏色基調*/
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.navbar{
+    background: var(--black);
+    height: 60px;
+    padding: 0.5rem calc((100vw-1200px)/2);
+    display: flex;
+    justify-content: space-between;/*header中間空出*/
+    align-items: center;
+    position: relative;
+}
+
+.navbar_logo{
+    color: var(--white);
+    text-decoration: none;
+    padding-left: 1rem;
+    font-size: 1.5rem;
+}
+
+
+.navbar_link{
+    color: var(--white);
+    text-decoration: none;
+    padding: 0rem 1rem;
+}
+
+.navbar_link:hover {
+    color:var(--red);
+}
+
+/*Mobile menu*/
+@media screen and (max-width: 768px){
+    body.active{
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    .navbar_link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*設置menu的布局*/
+    .navbar_menu{
+        display: grid;/*grid網格*/
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 100px);
+        position: absolute;
+        top: -1000px;/*-1000讓link在不開moblie時消失*/
+        width:100%;
+        
+    }
+
+    .navbar_menu.active{
+        top:100%;
+        opacity: 1;
+        z-index: 99;
+        height: 100vh;
+        font-size: 1.5rem;
+        background: var(--black);
+    }
+
+    /*Menu出現時的動畫*/
+    .navbar_toggle .bar{
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: var(--white);
+        display: block;
+        cursor: pointer;
+    }
+    /*mobile menu position*/
+    #mobile-menu{
+        position: absolute;
+        top: 15%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+
+    /*mobile menu 動畫*/
+    #mobile-menu.is-active .bar.bar:nth-child(2){
+        opacity: 0;/*mobileMenu 第二條線隱藏 opacity不透明度*/
+
+    }
+    #mobile-menu.is-active .bar.bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);/**/
+        /*形成對角線*/
+        
+    }
+    #mobile-menu.is-active .bar.bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+        /*對角線*/
+    }
+}
+
+/*Hero Section*/
+.Motivation {
+    background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('./images/Workout2.jpg');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    padding: 0.5rem calc((100vw-1200px)/2);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Motivation{
+    color: var(--white);
+    padding: 3rem 1rem;
+    line-height: 1;
+}
+
+.Motivation h1{
+
+    font-size: clamp(3rem, 8vw, 7rem);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.Motivation h2{
+
+    font-size: clamp(1rem, 3vw, 2.5rem);
+    margin-bottom: 3rem;
+}
+
+.Motivation li{
+
+    font-size: clamp(1rem, 1vw, 2.5rem);
+    margin-bottom: 3rem;
+}
+
+.button {
+    padding: 1rem 3rem;
+    border: none;
+    background: var(--black);
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s ease;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button:hover {
+
+    background: var(--black);
+}
+
+/* Movments Section*/
+
+.movement{
+    background: var(--black);
+    color: var(--white);
+    padding: 6rem calc((100vw - 1100px) / 2 ) ;
+    text-align: center;
+
+}
+
+.movement h1 {
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    padding: 0 1rem;
+}
+
+.movement_desc {
+    margin-bottom: 3rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    padding: 1rem;
+}
+
+.movement_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+.movement_card {
+    padding: 2rem;
+    min-height: 450px;
+    width: 325px;
+    background: var(--white);
+    color: var(--black);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movement_perks {
+    min-height: 150px;
+}
+
+.movement_card p {
+    margin-bottom: 2rem;
+}
+
+.card.icon {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--red);
+}
+
+.movement_card h3 {
+    font-size: clamp(1rem, 5vw, 2rem);
+    margin-bottom: 2rem;
+}
+
+.movement_card h4 {
+    font-size: clamp(1rem, 5vw, 2rem);
+    margin-bottom: 2rem;
+}
+
+
+@media screen and (max-width: 1100px){
+.movement_wrapper{
+    flex-direction: column;
+    align-items: enters;
+}
+
+.movement_card {
+    width: 90%;
+    margin-bottom: 2rem;
+}
+
+}
+
+/* Cover1 Section*/
+
+.Cover1 {
+    background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('./images/kickboxing1.jpeg');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    padding: 0.5rem calc((100vw-1200px)/2);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Cover1 {
+    color: var(--white);
+    padding: 3rem 1rem;
+    line-height: 1;
+}
+
+.Cover1_kick h1 {
+
+    font-size: clamp(3rem, 8vw, 7rem);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.Cover1_kick h2 {
+
+    font-size: clamp(1rem, 3vw, 2.5rem);
+    margin-bottom: 3rem;
+}
+
+.Cover1_kick li{
+
+    font-size: clamp(1rem, 1vw, 2.5rem);
+    margin-bottom: 3rem;
+}
+
+
+.Cover2 {
+    background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('./images/Skating1.jpeg');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    padding: 0.5rem calc((100vw-1200px)/2);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Cover2 {
+    color: var(--white);
+    padding: 3rem 1rem;
+    line-height: 1;
+}
+
+.Cover2_skating h1 {
+
+    font-size: clamp(3rem, 8vw, 7rem);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.Cover2_skating h2 {
+
+    font-size: clamp(1rem, 3vw, 2.5rem);
+    margin-bottom: 3rem;
+}
+
+.Cover2_skating li{
+
+    font-size: clamp(1rem, 1vw, 2.5rem);
+    margin-bottom: 3rem;
+}
+
+.Cover3 {
+    background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('./images/golf1.jpeg');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    padding: 0.5rem calc((100vw-1200px)/2);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Cover3 {
+    color: var(--white);
+    padding: 3rem 1rem;
+    line-height: 1;
+}
+
+.Cover3_golf h1 {
+
+    font-size: clamp(3rem, 8vw, 7rem);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.Cover3_golf h2 {
+
+    font-size: clamp(1rem, 3vw, 2.5rem);
+    margin-bottom: 3rem;
+}
+
+.Cover3_golf li{
+
+    font-size: clamp(1rem, 1vw, 2.5rem);
+    margin-bottom: 3rem;
+}
+
+.Cover4 {
+    background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('./images/swim1.jpeg');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    padding: 0.5rem calc((100vw-1200px)/2);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Cover4 {
+    color: var(--white);
+    padding: 3rem 1rem;
+    line-height: 1;
+}
+
+.Cover4_swim h1 {
+
+    font-size: clamp(3rem, 8vw, 7rem);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.Cover4_swim h2 {
+
+    font-size: clamp(1rem, 3vw, 2.5rem);
+    margin-bottom: 3rem;
+}
+
+.Cover4_gswim li{
+
+    font-size: clamp(1rem, 1vw, 2.5rem);
+    margin-bottom: 3rem;
+}
+
+
+
+
+
+
+/* Services Section */
+
+.services{
+padding: 8rem calc((100vw - 1200px) / 2);
+
+}
+
+
+.services_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+}
+
+.services_img {
+    width: 100%;
+    height: 100%;
+}
+
+.topline {
+    color: var(--red);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.services li{
+    color: var(--red);
+}
+
+.services_heading {
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 6vw, 3rem);
+
+}
+
+@media screen and (max-width: 768px){
+    .services_container{
+        grid-template-columns: 1fr;
+    }
+}
+
